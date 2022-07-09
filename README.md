@@ -1,24 +1,41 @@
-# README
+# Assume you have a blog site with more than 5000 posts. Now you need to track page view of the posts to show number of page view in post detail page when user view a post. Everyday there will be 1 million new page view to your posts. Use Postgresql to store the data. How will you design the system to maximize the performance?
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Design table
 
-Things you may want to cover:
+Post table:
 
-* Ruby version
+| Column name | type    | Option      | Default        |   |
+|-------------|---------|-------------|----------------|---|
+| id          | integer | primary key | auto increment |   |
+| title       | string  | not null    |                |   |
+| description | text    | not null    |                |   |
+| views       | integer |             | default: 0     |   |
 
-* System dependencies
+User table:
+| Column name | type    | Option      | Default        |   |
+|-------------|---------|-------------|----------------|---|
+| id          | integer | primary key | auto increment |   |
+| title       | string  | not null    |                |   |
+| description | text    | not null    |                |   |
+| views       | integer |             | default: 0     |   |
 
-* Configuration
+Views table:
+| Column name | type    | Option      | Default        |   |
+|-------------|---------|-------------|----------------|---|
+| id          | integer | primary key | auto increment |   |
+| post_id     | integer | not null    | index          |   |
+| user_id     | integer | not null    | index          |   |
 
-* Database creation
+# Design model
+class Post < ApplicationRecord
+  has_and_belongs_to_many :views
+end
 
-* Database initialization
+class User < ApplicationRecord
+  has_and_belongs_to_many :views
+end
 
-* How to run the test suite
+# Design system
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
