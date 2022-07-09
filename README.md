@@ -1,4 +1,4 @@
-# Assume you have a blog site with more than 5000 posts. Now you need to track page view of the posts to show number of page view in post detail page when user view a post. Everyday there will be 1 million new page view to your posts. Use Postgresql to store the data. How will you design the system to maximize the performance?
+# Assume you have a ecommerce site to sell some machines. There are four kinds of machine: MA, MB, MC, MD. Each kind has own unit price. Customers can buy machine in single-packs such as: 2MA, 3MA, 5MB, 20MC or multiple-packs such as: 2x2MA+3x5MB. Each pack has own discount. Administrators of the site can change discount of packs and the unit price of machine. Design models
 
 # Design database table
 
