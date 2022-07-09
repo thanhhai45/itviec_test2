@@ -29,8 +29,10 @@ Product_Package
 
 # Design database model
 
-Product 
-has_and_belongs_to_many :packages
+Product:
 
-Pakacge
-has_and_belongs_to_many :products
+- has_and_belongs_to_many :packages
+
+Pakacge:
+
+- has_and_belongs_to_many :products
