@@ -1,24 +1,36 @@
-# README
+# Assume you have a blog site with more than 5000 posts. Now you need to track page view of the posts to show number of page view in post detail page when user view a post. Everyday there will be 1 million new page view to your posts. Use Postgresql to store the data. How will you design the system to maximize the performance?
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Design database table
 
-Things you may want to cover:
+Product table
+| Column name | Type    | Option      | Default       |   |
+|-------------|---------|-------------|---------------|---|
+| id          | integer | primary key | autoincrement |   |
+| name        | string  | not null    |               |   |
+| price       | decimal | not null    |               |   |
+|             |         |             |               |   |
 
-* Ruby version
+Package table
+| Column name | Type    | Option      | Default        |   |
+|-------------|---------|-------------|----------------|---|
+| id          | integer | primary key | auto increment |   |
+| name        | string  | not null    |                |   |
+| discount    | decimal | not null    | default: 0     |   |
+|             |         |             |                |   |
 
-* System dependencies
+Product_Package
+| Column name | Type    | Option      | Default        |   |
+|-------------|---------|-------------|----------------|---|
+| id          | integer | primary key | auto increment |   |
+| package_id  | integer | not null    | index          |   |
+| product_id  | integer | not null    | index          |   |
+| quantity    | integer | not null    | default: 0     |   |
 
-* Configuration
 
-* Database creation
+# Design database model
 
-* Database initialization
+Product 
+has_and_belongs_to_many :packages
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Pakacge
+has_and_belongs_to_many :products
