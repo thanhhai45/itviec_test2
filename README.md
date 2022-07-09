@@ -20,6 +20,7 @@
 
 - I reproduce the code send email with delay job 
 - I migrate new table subscribe, associate 1-1 with user
+
 Table Subscribe:
 | id         | integer  | primary key   | autoincrement             |   |
 |------------|----------|---------------|---------------------------|---|
