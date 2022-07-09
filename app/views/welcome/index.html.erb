@@ -1,0 +1,14 @@
+<% flash.each do |type, msg| %>
+  <%- if type == "error"%>
+    <div style="height: 40px; background-color: red; color: white; font-size: 18px; line-height: 40px; padding: 10px">
+      <%= msg %>
+    </div>
+  <%- else %>
+    <div style="height: 40px; background-color: green; color: white; font-size: 18px; line-height: 40px; padding: 10px">
+      <%= msg %>
+    </div>
+   <% end %> 
+<% end %>
+<h1>Welcome#index</h1>
+<p>Find me in app/views/welcome/index.html.erb</p>
+

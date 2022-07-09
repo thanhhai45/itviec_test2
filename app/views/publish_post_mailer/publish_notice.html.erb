@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hi <%= @user.name %></h1>
+    <p>
+      We notice you have new post published on <%= link_to "New Post", post_url(@post)%>
+    </p>
+    <%binding.break%>
+    <p>
+      You want to unsubscribe so don't receive email. Please click to link
+      <%= link_to "Unsubscribe", unsubscribe_user_url(@user.id)%>
+    </p>
+  </body>
+</html>
+
